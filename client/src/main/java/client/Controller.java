@@ -71,13 +71,13 @@ public class Controller implements Initializable {
             
             new Thread(() -> {
                 try {
-                    // цикл аутентификации
+                    // case for authentication
                     while (true) {
                         String str = in.readUTF();
                         
                         if (str.startsWith("/")) {
                             if (str.equals(Command.END)) {
-                                throw new RuntimeException("Сервак нас отключает");
+                                throw new RuntimeException("The server switches off us");
                             }
                             if (str.startsWith(Command.AUTH_OK)) {
                                 String[] token = str.split("\\s");
@@ -89,7 +89,7 @@ public class Controller implements Initializable {
                             textArea.appendText(str + "\n");
                         }
                     }
-                    // цикл работы
+                    // working case
                     while (true) {
                         String str = in.readUTF();
                         
